@@ -1,6 +1,6 @@
 product_id,name,price,stock
-101,Milk,1.50,50
-102,Bread,1.00,30
+101,Milk,1.50,40
+102,Bread,1.00,26
 103,Eggs,2.20,20
 104,Rice,5.00,15
 105,Apples,0.50,100
