@@ -99,25 +99,37 @@ python main.py
 Follow the prompts to place an order.
 
 🛡 Error Handling & Edge Cases
+
 ❌ Invalid product IDs are safely rejected
+
 ❌ Orders exceeding available stock are rejected
+
 ✅ Rejected orders are still logged for audit and analysis
+
 ✅ Inventory consistency is preserved at all times
 
 🧠 Key Concepts Demonstrated
 
 Backend logic design
+
 Separation of concerns
+
 File-based persistence
+
 Defensive programming
+
 Realistic retail system workflows
 
 🚀 Possible Enhancements
 
 Replace CSV storage with a database (SQLite / PostgreSQL)
+
 Add user authentication
+
 Implement REST API endpoints
+
 Add input validation and exception handling
+
 Introduce automated tests
 
 📌 Why This Project Matters
