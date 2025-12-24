@@ -1,0 +1,4 @@
+order_id,product_id,quantity,status
+5001,101,2,COMPLETED
+5002,102,5,COMPLETED
+5003,103,25,REJECTED
