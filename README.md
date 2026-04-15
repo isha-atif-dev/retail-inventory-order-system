@@ -1,122 +1,125 @@
-🛒 Retail Inventory & Order Management System (Python)
-📌 Project Overview
+# 🛒 Retail Inventory & Order Management System
 
-This project is a backend-focused retail inventory and order management system built using Python.
-It simulates how real retail systems handle product stock, order validation, and order history logging using persistent storage.
+> Backend-focused Python system that simulates real retail logic — stock validation, inventory updates, and persistent order history logging using CSV-based storage.
 
-The system ensures that:
+![Python](https://img.shields.io/badge/python-3.x-blue)
+![Storage](https://img.shields.io/badge/storage-CSV-green)
+![Type](https://img.shields.io/badge/type-portfolio%20project-orange)
 
-Orders are only completed when sufficient stock exists.
-Inventory is updated reliably.
-All order attempts (successful or rejected) are recorded.
-This project was designed to reflect real-world retail backend logic, similar to systems used in large retailers.
+---
 
-🎯 Key Features
+## Overview
 
-Load and manage product inventory from CSV files
+This project simulates how real retail systems handle product stock, order validation, and order history logging using file-based persistent storage. It ensures that:
 
-Validate orders against available stock
+- Orders are only completed when sufficient stock exists
+- Inventory is updated reliably after each transaction
+- All order attempts — successful or rejected — are permanently recorded
 
-Automatically update inventory for completed orders
+---
 
-Persist order history (COMPLETED and REJECTED orders)
+## Key Features
 
-Generate unique order IDs
+- Load and manage product inventory from CSV files
+- Validate orders against available stock
+- Automatically update inventory for completed orders
+- Persist full order history (COMPLETED and REJECTED)
+- Generate unique order IDs
+- Clear separation of concerns across modules
 
-Clear separation of concerns across modules
+---
 
-🗂 Project Structure
+## Repository Structure
 retail-inventory-order-system/
 │
 ├── main.py                  # Application entry point
 │
 ├── inventory/
-│   ├── inventory.py         # Inventory logic (load & update stock)
-│   ├── orders.py            # Order validation & order logging
+│   ├── inventory.py         # Load & update stock
+│   ├── orders.py            # Order validation & logging
 │   ├── utils.py             # File handling utilities
 │   └── data/
-│       ├── products.csv     # Product inventory data
+│       ├── products.csv     # Product inventory
 │       └── orders.csv       # Order history log
 │
 └── README.md
 
-🔁 System Flow (How It Works)
+---
 
-User enters a product ID and quantity
-Order is validated:
+## System Flow
 
-Product existence is checked
+1. User enters a product ID and quantity
+2. System checks product existence and stock availability
+3. **If valid** → stock is reduced, order saved as `COMPLETED`
+4. **If invalid** → inventory unchanged, order saved as `REJECTED`
+5. All attempts permanently recorded in `orders.csv`
 
-Stock availability is verified
+---
 
-If valid:
+## Example Data
 
-Inventory stock is reduced
-
-Order is saved as COMPLETED
-
-If invalid:
-
-Inventory remains unchanged
-
-Order is saved as REJECTED
-
-Order history is permanently recorded in orders.csv
-
-📄 Example Data
-products.csv
+**products.csv**
+```csv
 product_id,name,price,stock
 101,Milk,1.50,50
 102,Bread,1.00,30
 103,Eggs,2.20,20
+```
 
-orders.csv
+**orders.csv**
+```csv
 order_id,product_id,quantity,status
 5001,101,2,COMPLETED
 5002,103,25,REJECTED
+```
 
-▶️ How to Run the Project
-Clone the repository:
+---
 
-git clone https://github.com/your-username/retail-inventory-order-system.git
+## How to Run
 
-Navigate into the project folder:
+```bash
+# 1. Clone the repository
+git clone https://github.com/isha-atif-dev/retail-inventory-order-system.git
+
+# 2. Navigate into the project folder
 cd retail-inventory-order-system
 
-Run the application:
+# 3. Run the application
 python main.py
+```
 
 Follow the prompts to place an order.
 
-🛡 Error Handling & Edge Cases
-❌ Invalid product IDs are safely rejected
-❌ Orders exceeding available stock are rejected
-✅ Rejected orders are still logged for audit and analysis
-✅ Inventory consistency is preserved at all times
+---
 
-🧠 Key Concepts Demonstrated
+## Error Handling & Edge Cases
 
-Backend logic design
-Separation of concerns
-File-based persistence
-Defensive programming
-Realistic retail system workflows
+| Scenario | Behaviour |
+|---|---|
+| Invalid product ID | Safely rejected |
+| Order exceeds stock | Rejected, inventory unchanged |
+| Rejected orders | Still logged for audit |
+| All transactions | Inventory consistency preserved |
 
-🚀 Possible Enhancements
+---
 
-Replace CSV storage with a database (SQLite / PostgreSQL)
-Add user authentication
-Implement REST API endpoints
-Add input validation and exception handling
-Introduce automated tests
+## Concepts Demonstrated
 
-📌 Why This Project Matters
+`Backend logic design` · `Separation of concerns` · `File-based persistence` · `Defensive programming` · `Retail system workflows`
 
-This project mirrors the core logic used in retail backend systems, making it directly relevant to software engineering and technology internships.
-It demonstrates practical problem-solving, clean code structure, and real-world system thinking.
+---
 
-👤 Author
+## Possible Enhancements
 
-Isha Atif
-MRes Applied Artificial Intelligence
-University of Bolton (UoGM)
+- Replace CSV storage with a database (SQLite or PostgreSQL)
+- Add REST API endpoints
+- Implement user authentication
+- Introduce automated tests
+- Add comprehensive input validation and exception handling
+
+---
+
+## Author
+
+**Isha Atif**  
+MRes Applied Artificial Intelligence · University of Bolton (UoGM)
